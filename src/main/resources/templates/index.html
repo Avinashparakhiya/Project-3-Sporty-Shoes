@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sporty Shoes</title>
+</head>
+<body>
+<h1>Welcome to Sporty Shoes</h1>
+<h2>List of Shoes</h2>
+<div align="right">
+    <th><a href="/adminlogin">Admin Login</a></th>
+    </br></br>
+    <th><a href="/userlogin">Sign In</a></th>
+    </br></br>
+    <th><a href="/adduser">Sign Up</a></th>
+</div>
+
+<div align="center">
+    <form>
+        <table border="1" cellpadding="5">
+            <caption><h2>List of Shoes</h2></caption>
+            <tr>
+                <th>Brand</th>
+                <th>Category</th>
+                <th>Size</th>
+                <th>Price</th>
+            </tr>
+            <th:block th:each="products:${products}">
+                <tr>
+                    <td>[[${products.brandName}]]</td>
+                    <td>[[${products.gender}]]</td>
+                    <td>[[${products.size}]]</td>
+                    <td>[[${products.price}]]</td>
+                </tr>
+            </th:block>
+        </table>
+    </form>
+</div>
+</body>
+</html>

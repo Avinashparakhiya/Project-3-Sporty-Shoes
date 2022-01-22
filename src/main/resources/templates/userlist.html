@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sporty Shoes</title>
+</head>
+<body>
+<h1>Welcome to Sporty Shoes</h1>
+<div align="left">
+    <a href="/adminpage">Back to Admin Page</a>
+</div>
+<div align="center">
+    <form action="/edituser" method="post">
+        <table border="1" cellpadding="5">
+            <caption><h2>List of Users</h2></caption>
+            <tr>
+                <th>Login ID</th>
+                <th>Email</th>
+                <th>Phone/Mobile</th>
+            </tr>
+            <th:block th:each="Users:${Users}">
+                <tr>
+                    <td>[[${Users.loginId}]]</td>
+                    <td>[[${Users.email}]]</td>
+                    <td>[[${Users.phone}]]</td>
+                </tr>
+            </th:block>
+        </table>
+    </form>
+</div>
+</body>
+</html>

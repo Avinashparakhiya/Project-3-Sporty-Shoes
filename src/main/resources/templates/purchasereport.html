@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sporty Shoes</title>
+</head>
+<body>
+<h1>Welcome to Sporty Shoes</h1>
+<div align="right">
+    <a href="/adminpage">Back to Admin Page</a>
+</div>
+<div align="right">
+    <a href="/reportparam">Change Search</a>
+</div>
+<div align="center">
+    <form>
+        <table border="1" cellpadding="5">
+            <caption><h3>Purchase Report</h3></caption>
+            <tr>
+                <th>Customer</th>
+                <th>Order</th>
+                <th>Order Date</th>
+                <th>Brand</th>
+                <th>Category</th>
+                <th>Size</th>
+                <th>Price</th>
+            </tr>
+            <th:block th:each="purchasedetails:${purchasedetails}">
+                <tr>
+                    <td>[[${purchasedetails.loginId}]]</td>
+                    <td>[[${purchasedetails.orderId}]]</td>
+                    <td>[[${purchasedetails.orderDate}]]</td>
+                    <td>[[${purchasedetails.brandName}]]</td>
+                    <td>[[${purchasedetails.gender}]]</td>
+                    <td>[[${purchasedetails.size}]]</td>
+                    <td>[[${purchasedetails.price}]]</td>
+            </th:block>
+        </table>
+    </form>
+</div>
+</body>
+</html>

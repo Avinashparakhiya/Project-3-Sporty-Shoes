@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html xmlns:c="">
+<head>
+    <meta charset="UTF-8">
+    <title>Sporty Shoes</title>
+</head>
+<body>
+<h1>Welcome to Sporty Shoes</h1>
+<h2>Hello, ${username}</h2>
+<h3>List of Shoes</h3>
+<div align="right">
+    <a href="/index">Sign Out</a><br/>
+    <a th:href=" '/viewcart?lid=' + ${username}">View
+        Cart</a><br/>
+</div>
+<div align="center">
+    <form action="/addToCart" method="post">
+        <table border="1" cellpadding="5">
+            <caption><h2>List of Shoes</h2></caption>
+            <tr>
+                <th>Brand</th>
+                <th>Category</th>
+                <th>Size</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+            <th:block th:each="products:${products}">
+                <tr>
+                    <td>[[${products.brandName}]]</td>
+                    <td>[[${products.gender}]]</td>
+                    <td>[[${products.size}]]</td>
+                    <td>[[${products.price}]]</td>
+                    <td>
+                        <a th:href=" '/addToCart?pid=' + ${products.id} + '&lid=' + ${username} + '&pr=' + ${products.price} + '&bn=' +${products.brandName} + '&gd=' +   ${products.gender} + '&sz=' +${products.size}">Add to Cart</a>
+                    </td>
+                </tr>
+            </th:block >
+        </table>
+    </form>
+</div>
+</body>
+</html>

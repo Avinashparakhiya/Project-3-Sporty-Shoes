@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sporty Shoes</title>
+</head>
+<body>
+<h1>Welcome to Sporty Shoes</h1>
+<p th:text="'Hello, ' + ${username}" />
+<div align="center">
+    <h3>Your Order Details</h3>
+    <p th:text="'Order#, ' + ${orderid}" />
+</div>
+<div align="right">
+    <a href="/index">Sign Out</a>
+</div>
+<div align="right">
+    <a th:href=" '/userPage?&username=' + ${userName}">Continue Shopping</a>
+</div>
+<div align="center">
+    <form>
+        <table border="1" cellpadding="5">
+            <caption><h3>Order Details</h3></caption>
+            <tr>
+                <th>Brand</th>
+                <th>Category</th>
+                <th>Size</th>
+                <th>Price</th>
+            </tr>
+            <th:block th:each="orderdetail:${orderdetail}">
+                <tr>
+                    <td>[[${orderdetail.brandName}]]</td>
+                    <td>[[${orderdetail.gender}]]</td>
+                    <td>[[${orderdetail.size}]]</td>
+                    <td>[[${orderdetail.price}]]</td>
+                      </tr>
+            </th:block>
+            <tr>
+                <th>Order Total</th>
+                <th></th>
+                <th></th>
+                <td>[[${ordertotal}]]</td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

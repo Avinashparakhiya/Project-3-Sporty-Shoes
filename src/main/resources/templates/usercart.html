@@ -1,0 +1,56 @@
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sporty Shoes</title>
+</head>
+<body>
+<h1>Welcome to Sporty Shoes</h1>
+<p th:text="'Hello, ' + ${username}" />
+<div align="center">
+    <h3>Your Cart</h3>
+</div>
+<div align="right">
+    <a href="/index">Sign Out</a>
+</div>
+<div align="right">
+    <a th:href="'/userPage?&username=' + ${username}">Add More Items</a>
+</div>
+<div align="center">
+    <form action="/placeOrder" method="post">
+        <table border="1" cellpadding="5">
+            <caption><h3>Items in your cart</h3></caption>
+            <tr>
+                <th>Brand</th>
+                <th>Category</th>
+                <th>Size</th>
+                <th>Price</th>
+            </tr>
+            <th:block th:each="cart:${cart}">
+                <tr>
+                    <td>[[${cart.brandName}]]</td>
+                    <td>[[${cart.gender}]]</td>
+                    <td>[[${cart.size}]]</td>
+                    <td>[[${cart.price}]]</td>
+                </tr>
+            </th:block>
+            <tr>
+                <th>Cart Total</th>
+                <th></th>
+                <th></th>
+                <td>[[${carttotal}]]</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+
+                    <a th:href="'/placeOrder?&lid='+ ${username}">Place Order</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
